@@ -1,0 +1,23 @@
+@import "../../variables";
+.skillDescription{
+	font-size: $font-size-boxText;
+	color:rgb(138, 138, 138);
+}
+.-itemWrapperSkill{
+	border:1px solid darken($text-light-color, 2.2%);
+	padding:12px;
+	margin:10px;
+}
+.-itemEditBtn{
+	svg{
+		width:10px;
+	}
+	font-size: $font-size-verySmallText;
+	float:left;
+	cursor: pointer;
+}
+.skillTags{
+	.skillTag{
+		background-color:rgba(110, 110, 110, 0.705)
+	}
+}

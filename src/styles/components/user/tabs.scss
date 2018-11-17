@@ -1,0 +1,108 @@
+@import "../../variables";
+//********************* Skills ******************************
+
+.tagCross {
+  font-size: $font-size-boxText;
+}
+
+.skillAddTagInput {
+  max-width: 50%;
+  width: 200px;
+}
+
+// ******************** Posts ******************************
+
+.-frameCardPost {
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 0;
+  padding: 10px 5px;
+}
+
+.-itemWrapperPost {
+  margin-bottom: 15px;
+  border: 1px solid $eee-color;
+  border-radius: 3px;
+  padding: 18px 18px 13px 18px;
+  box-shadow: 0 2px 5px $box-shadow-color;
+
+  .-item-headerPost{
+    display: flex;
+    flex-direction: row;
+
+    .-item-edit-btnPost {
+      margin-right: auto;
+      padding-top: 2px;
+
+      svg {
+        fill: $text-dark-color;
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    .-img-col {
+      img, svg {
+        width: 45px;
+        height: 45px;
+      }
+    }
+    .-item-titlePost{
+      display: flex;
+      flex-direction: column;
+      padding: 0 8px;
+
+      .post-name{
+        font-size: $font-size-post-name;
+        padding: 0 8px;
+      }
+      .post-username{
+        font-size: $font-size-post-username;
+        padding: 0 8px;
+      }
+      .post-date{
+        font-size: $font-size-post-date;
+        margin-top: 3px;
+        padding: 0 8px;
+      }
+    }
+  }
+
+  .post-content {
+    line-height: 2.1;
+    font-size: $font-size-post-content;
+    padding: 10px 0;
+
+    // TODO mohsen: handle long text
+    //overflow-x: hidden;
+    //max-width: 400px;
+    //text-overflow: ellipsis;
+  }
+
+  .-item-footerPost {
+    display: flex;
+
+    .footer-part{
+      flex: 1;
+
+      svg {
+        fill: lighten($text-light-color, 3%);
+      }
+      span, i {
+        color: lighten($text-light-color, 3%);
+      }
+    }
+    .post-details{
+      display: flex;
+      flex-flow: row-reverse;
+
+      div {
+        margin-right: 15%;
+      }
+    }
+  }
+}
+
+.-green2 {
+  color: lighten($text-light-color, .5%);
+}

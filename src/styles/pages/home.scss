@@ -1,0 +1,173 @@
+@import "../variables";
+
+$heightOfContentBox: 140px;
+@keyframes animate-createPostFooter {
+  from {
+    opacity: 0
+  }
+}
+
+.home-wrapper {
+  .content {
+    min-height: 100%;
+    @media screen and (max-width: 1920px) and (min-width: 1366px){
+      margin: 0 138px;
+    }
+    @media screen and (max-width: 1280px) and (min-width: 600px){
+      margin: 0 90px;
+    }
+    @media screen and (max-width: 1366px) and (min-width: 1280px){
+      margin: 0 97px;
+    }
+    .right-sidebar {
+      overflow-y: auto;
+      max-height: fit-content;
+      background: $text-lightest-color;
+      -webkit-box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+      box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.-createPostHome {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 5px;
+  background-color: $chat-box2-color;
+  border-radius: 3px;
+  padding: 15px 20px 15px 20px;
+
+  .-img-col {
+      width: 45px;
+      height: 45px;
+  }
+
+  .-content-col {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 1px;
+    background-color: $text-lightest-color;
+    .-textBox {
+      flex-grow: 1;
+    }
+    textarea {
+      flex: 1;
+      outline: none;
+      border: 0;
+      float: right;
+      resize: none;
+    }
+  }
+
+  .-createPostFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px 0 20px;
+    align-items: center;
+
+    i {
+      color: lighten($text-light-color, 3%);
+      font-size: 22px;
+    }
+
+    i:hover {
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    svg:hover {
+      cursor: pointer;
+    }
+
+    svg path {
+      fill: lighten($text-light-color, 3%);
+    }
+
+    svg:hover path {
+      fill: $primary-color;
+    }
+
+    .submitColor {
+      color: $text-title-menu-color;
+    }
+
+    .-submitAttach path {
+      fill: darken($text-title-menu-color, 2.7%);
+    }
+  }
+
+  .closeTextarea {
+    flex-direction: row;
+    justify-content: space-between;
+    textarea {
+      height: 100%;
+      overflow-y: hidden;
+    }
+    .-img-content {
+      display: none;
+    }
+    .-createPostFooter {
+
+      .leftBottomIcons {
+        display: none
+      }
+    }
+  }
+
+  .openTextarea {
+    flex-direction: column;
+    textarea {
+      width: 80%;
+    }
+    .-img-content {
+      height: $heightOfContentBox;
+      margin: 0 auto 0 0;
+      display: flex;
+      flex-direction: column;
+      .-fileBox {
+        height: 95%;
+        max-width: 250px;
+        position: relative;
+        label {
+          position: absolute;
+          left: 1px;
+          top: 1px;
+        }
+        i {
+          background-color: $text-lightest-color;
+          border-radius: 2px;
+          box-shadow: 1px 1px 10px 1px grey;
+        }
+        img {
+          height: inherit;
+          width: 100%;
+        }
+      }
+      .-fileNameBox {
+        color: lighten($text-light-color, 2%);
+        text-align: center;
+      }
+    }
+    .-createPostFooter {
+      animation: animate-createPostFooter 5000ms;
+      animation-fill-mode: backwards
+    }
+  }
+
+}
+
+.-h18 {
+  height: 16px;
+}
+
+.-selectedPostType {
+  color: $primary-color !important;
+}
+
+.-selectedPostType path {
+  fill: $primary-color !important;
+}

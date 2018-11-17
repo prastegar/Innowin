@@ -1,0 +1,23 @@
+@import "variables";
+
+.full-page-wrapper {
+  padding-top: 20px;
+}
+
+.-main {
+  padding-top: $topBarHeight
+}
+
+.-left-sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  top: $topBarHeight;
+  bottom: 0;
+  //overflow-y: auto;
+}
+
+.-content-wrapper {
+  margin: 0 auto;
+  min-height: 100vh;
+}

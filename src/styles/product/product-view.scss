@@ -1,0 +1,122 @@
+@import "../variables";
+
+//-----------------------        product sidBart   -----------------//
+.-rBarChart {
+  height: 25px;
+}
+
+.-rBarChart path {
+  fill: $text-title-menu-color;
+}
+
+.-rBarChart:hover {
+  cursor: pointer;
+}
+
+.-rBarChart:hover path {
+  fill: $primary-color
+}
+
+.-w-45 {
+  width: 45% !important;
+}
+
+.-grey2 {
+  color: lighten($text-title-menu-color, 3%);
+}
+
+.-rBarBookmark {
+  height: 18px;
+}
+
+.-rBarBookmark path {
+  fill: $text-title-menu-color;
+}
+
+.-rBarBookmark:hover {
+  cursor: pointer;
+}
+
+.-rBarBookmark:hover path {
+  fill: $primary-color
+}
+
+.-rBarMainPicture {
+  height: 200px;
+  outline: none;
+}
+
+.-rBarProductImage {
+  flex-wrap: wrap;
+}
+
+.-rBarProductImage div:not(:last-child) {
+  height: 45px;
+  width: 22%;
+  border: 1px solid gainsboro;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 12px;
+}
+
+.-rBarProductImage div:last-child {
+  height: 45px;
+  width: 22%;
+  border: 1px solid gainsboro;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.-fontSize10 {
+  font-size: $font-size-verySmallText;
+}
+
+// Modal and Slider
+
+.-grey3 {
+  background-color: #e6f1fb;
+}
+
+.-grey4 {
+  background-color: #dee9ef;
+}
+
+.-productViewModal button {
+  outline: none;
+}
+
+.-productViewOriginalClass img {
+  height: 550px;
+}
+
+.-productViewThumbnailClass img {
+  height: 70px;
+}
+
+%text-input {
+  width: 100%;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid $text-input-border-color;
+}
+
+.product-basic-information .product-form {
+  .category.error .Select-control {
+    border: 1px solid $error-color;
+  }
+  .description {
+    height: 200px;
+    @extend %text-input
+  }
+  .form-field {
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    @extend %text-input;
+    &.error {
+      border: 1px solid $error-color;
+    }
+  }
+}

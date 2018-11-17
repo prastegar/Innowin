@@ -1,0 +1,33 @@
+@import "../variables";
+@import "../components/utils";
+
+.login-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  @extend %no-draggable;
+
+  &.full-page-wrapper::before {
+    content: '';
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    right: 0;
+    left: -100px;
+    top: 0;
+    bottom: 0;
+    background-image: url('../images/loginBG.jpg');
+    background-color: lighten($text-light-color, 10%);
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="15" /></filter></svg>#filter');
+    filter: blur(10px);
+  }
+}
+
+.login-page > .login-container {
+  position: relative;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 20px;
+  min-height: 100%;
+}

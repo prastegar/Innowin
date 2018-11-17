@@ -1,0 +1,69 @@
+@import "variables";
+body {
+  direction: rtl;
+  overflow-x: hidden;
+  height: 100%;
+  font-family: "IRANSansWebFaNum", "Helvetica Neue", sans-serif !important;
+  background-image: url("../images/common/userOrganBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html {
+  height: 100%;
+  font-family: "IRANSansWebFaNum", "Helvetica Neue", sans-serif !important;
+}
+
+input, textarea, button, select {
+  font-family: "IRANSansWebFaNum", "Helvetica Neue", sans-serif !important;
+}
+
+@import "./font-face";
+@import "./_variables.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~react-select/dist/react-select.css";
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "./components/utils.scss";
+@import "./animations";
+@import "./pages/home";
+@import "./pages/login";
+@import "./pages/progressive";
+@import "./pages/modal";
+@import "./pages/adding-contribution/adding-contribution";
+
+@import "components/bars/bars";
+@import "components/bars/chatbar";
+@import "components/common/cards/frames";
+@import "components/common/input-group-vertical";
+@import "components/common/inputs/circular-checkbox";
+@import "components/common/inputs/file-input";
+@import "components/common/inputs/file-name";
+@import "components/common/inputs/otherInput";
+@import "components/common/inputs/radio-button-input";
+@import "components/common/inputs/select-input";
+@import "components/common/label";
+@import "components/common/list-group-addons";
+@import "components/common/media";
+@import "components/common/common-redux-form";
+@import "components/common/tooltip";
+@import "components/exchange/exchangeView";
+@import "components/exchange/ExchangeView/index";
+@import "components/exchange/ExchangeView/post";
+@import "components/exchange/ExchangeView/view";
+@import "components/exchange/masonry";
+@import "components/login/Carousel";
+@import "components/login/ContentLogin";
+@import "components/login/FooterLogin";
+@import "components/login/HeaderLogin";
+@import "components/organization/basicInformation";
+@import "components/organization/customers";
+@import "components/organization/products";
+@import "components/user/certificates";
+@import "components/user/skill";
+@import "components/user/social";
+@import "components/user/tabs";
+@import "components/validation_styles";
+@import "icons_svg";
+@import "layout";
+@import "product/product-explorer";
+@import "product/product-view";

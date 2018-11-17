@@ -1,0 +1,403 @@
+@import "../../variables";
+
+//** ----------------             topBar  -----------------------------------**//
+.topBar {
+  height: $topBarHeight;
+  background-color: $brand-inverse-color;
+}
+
+.navbar-toggler {
+  padding: 0;
+  /* margin: 0; */
+  background-size: cover;
+  width: 4rem;
+  height: 100%;
+  border-radius: 0;
+  right: 0;
+  margin-right: 0 !important;
+  outline: none;
+}
+
+.navbar-toggler:hover {
+  background-color: lighten($primary-color, 1.5%)
+}
+
+.navbar-toggler.active {
+  background-color: lighten($primary-color, 1.5%)
+}
+
+.-white-i i {
+  color: $text-lightest-color;
+  font-size: 26px;
+}
+
+.-topBarIcons {
+  height: 23px;
+}
+
+.centerImgTopBar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 40px
+}
+
+.-searchInput {
+  border: 1px solid lighten($primary-color, 2%);
+  border-radius: 20px;
+  background-color: lighten($primary-color, 2%);
+  padding-left: 10px;
+  padding-right: 20px;
+  margin: 14px;
+}
+
+.-searchInput input {
+  margin-left: 10px;
+  border: none !important;
+  background-color: transparent;
+  outline: none;
+}
+
+.-topBar-right-collapse {
+  position: fixed;
+  right: 0;
+  top: $topBarHeight;
+  background-color: lighten($primary-color, 1.5%);
+  z-index: 1010;
+  img {
+    height: 150px;
+  }
+  ul {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: $text-lightest-color;
+      cursor: pointer;
+      i {
+        padding: 15px;
+        font-size: 30px;
+      }
+    }
+    li:hover {
+      background-color: darken($primary-color, 3%);
+    }
+  }
+}
+
+.-topBar-profile-collapse {
+  position: fixed;
+  left: 0;
+  top: $topBarHeight;
+  background-color: $brand-inverse-color;
+  z-index: 1010;
+  width: 22rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom-right-radius: 0.25rem;
+  > div {
+    height: 75px;
+  }
+  a {
+    color: $text-lightest-color;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a:hover {
+    color: $info-color;
+  }
+}
+
+.-ProfTopBarImg {
+  display: flex;
+  img, svg {
+    cursor: pointer;
+    margin: auto 0 auto 10px;
+    height: 57px;
+    width: 57px;
+  }
+  img {
+    border-radius: 50%;
+  }
+
+}
+
+.-outlineWhite {
+  outline-color: $text-lightest-color !important;
+}
+
+//** --------------------------      ChatBar(leftBar)   -------------------------**//
+
+.-my-icons1 {
+  margin-top: 20px !important;
+  padding-left: 0;
+  position: fixed;
+  left: 20px;
+  a {
+    color: $primary-color;
+    font-size: $font-size-chatBarIcon;
+    line-height: 48px;
+    &:hover, &.active {
+      color: $text-lightest-color;
+      background-color: $primary-color;
+    }
+    &.active:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+
+      border-left: 10px solid $primary-color;
+      right: -6px;
+    }
+  }
+}
+
+.-my-icons1 a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid lighten($primary-color, 21.6%);
+  border-radius: 50px;
+  position: relative;
+  margin-bottom: 30px;
+  background-color: $text-lightest-color;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+}
+
+.-my-icons1 svg {
+  fill: lighten($primary-color, 2%);
+  float: left !important;
+  height: 24px;
+  position: absolute;
+  transform: translate(50%, 50%)
+}
+
+//** ---------------------------        Sidebar(rightBar)      -------------------------------- **//
+.-right-sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  top: $topBarHeight;
+  bottom: 0;
+  overflow-y: auto;
+  background: $text-lightest-color;
+  -webkit-box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: -2px 0px 14px rgba(0, 0, 0, 0.3);
+}
+
+.user-sidebar-width {
+  max-width: 18%;
+  min-width: 210px;
+}
+
+.-sidebar-child-wrapper {
+  position: relative;
+  .head-picture {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 0;
+    left: 50%;
+  }
+  .info-section {
+    padding-bottom: 90px
+  }
+  .menuBottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: lighten($text-light-color, 3%);
+    float: left;
+    margin: 15px 0 -10px 10px;
+    cursor: pointer;
+    display: block;
+    width: 15px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    z-index: 101;
+  }
+  .menu-box {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border: 1px solid lighten($text-lighter-color, 3.6%);
+    border-radius: 3px;
+    background-color: $text-lightest-color;
+    width: 125px;
+    box-shadow: -2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      &:first-child {
+        border-bottom: 1px solid lighten($text-lighter-color, 3.6%);
+      }
+      span {
+        padding-right: 10px;
+        cursor: pointer;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: $font-size-boxText;
+        &:last-child {
+          padding-bottom: 13px;
+        }
+        &:hover {
+          background-color: $eee-color;
+        }
+      }
+    }
+  }
+  .badgesCard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    span {
+      margin: 5px 5px 0 5px;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+  .followNames {
+    span {
+      &.item {
+        color: cornflowerblue
+      }
+      font-size: 14px;
+      padding-right: 5px;
+    }
+  }
+  .social-network {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    i {
+      font-size: 25px;
+      color: $text-light-color;
+      &.active {
+        color: red;
+      }
+    }
+  }
+}
+
+.-sidebar-child-wrapper > div {
+  display: flex;
+  border-bottom: 1px solid lighten($text-lighter-color, 3.6%);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.banner {
+  width: 100%;
+  height: 115px;
+}
+
+.sidebarBottom {
+  border-color: $sidebar-bottom-color !important;
+  color: $sidebar-bottom-color !important;
+  font-size: $font-size-boxText;
+  border-radius: 20px;
+}
+
+.-grey1 {
+  color: lighten($text-title-menu-color, 1%);
+}
+
+.-myBadge {
+  background-color: lighten($text-light-color, 3%);
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 5px;
+}
+
+//**         Home Sidebar(List of exchanges)               **//
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 30px;
+  position: relative;
+
+  &.active {
+    background-color: $chat-box2-color;
+    .exchange-name {
+      color: lighten($text-darkest-color, 10%) !important;
+    }
+  }
+
+  .header-exchange {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 10px;
+    cursor: pointer;
+    align-items: center;
+    .exchange-name {
+      padding: 0 20px 0 0;
+      color: $text-light-color;
+      font-size: $font-size-normalText;
+    }
+    .default-logo {
+      width: 22%;
+      width: 50px;
+      height: 50px;
+    }
+    .img-logo {
+      width: 22%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+
+  .active-content {
+    color: $text-light-color;
+    .active-description {
+      padding-right: 10px;
+      font-size: $font-size-normalText;
+      line-height: 2.5;
+      overflow: hidden;
+      height: 60px;
+    }
+    .active-footer {
+      margin-top: 25px;
+      svg path {
+        fill: $text-light-color
+      }
+      float: left;
+    }
+  }
+
+  &:after {
+    content: '';
+    width: 78%;
+    width: calc(100% - 80px);
+    display: block;
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: $text-lighter-color;
+  }
+}

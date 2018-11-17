@@ -1,0 +1,25 @@
+@import "variables";
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  image-rendering: optimizeQuality;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+}
+
+.red-path {
+  fill: red
+}
+
+.white-path {
+  fill: $text-lightest-color
+}
+
+.-rectSvg {
+  fill-opacity: 0;
+  stroke-opacity: 0;
+}
+
+.-whiteSvg svg path {
+  fill: $text-lightest-color;
+}

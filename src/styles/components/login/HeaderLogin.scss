@@ -1,0 +1,95 @@
+@import '../../variables';
+
+.login-page .header {
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	flex: 0 0 50px;
+
+	.logo-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: $text-lighter-color;
+		.logo img {
+			height: 48px;
+			flex: 0 0 50px;
+			color: $text-lightest-color;
+		}
+		.company-name {
+			flex: 0 0 125px;
+			margin: 0 10px 0 0;
+			font-size: 30px;
+			color: $text-lightest-color;
+			display: flex;
+			align-items: center;
+		}
+		.divider {
+			width: 0;
+			border: 1.25px solid $text-lightest-color;
+			height: 75%;
+			margin: 8px;
+			background-color: $text-lightest-color;
+		}
+		.logo-caption {
+			min-width: 70px;
+			flex: 0 0 70px;
+			font-size: $font-size-boxText;
+			margin: 8px;
+		}
+	}
+
+	.address-wrapper {
+      @media screen and (min-width: 992px) {
+        justify-content: flex-end;
+      }
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+
+		.address-section, .app-icon-section {
+			display: flex;
+			flex-direction: row;
+		}
+		.address-wrapper-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.address {
+			color: $text-lightest-color;
+			font-size: $font-size-boxText;
+			line-height: 20px;
+		}
+		.phone-number {
+			color: $text-lightest-color;
+			font-size: $font-size-smallIcon;
+			line-height: 17px;
+		}
+		.icon {
+			line-height: 40px;
+			&.phone-icon {
+				border-radius: 50%;
+				text-align: center;
+				background-color: $text-lightest-color;
+				margin: 0 0 0 15px;
+                align-self: center;
+			}
+			div {
+				width: 34px;
+				height: 34px;
+				color: lighten($text-dark-color, 22%);
+				font-size: 24px;
+				background-color: lighten($text-lightest-color, 40%);
+				text-align: center;
+				border-radius: 50%;
+			}
+		}
+		.icon, a {
+			color: lighten($text-dark-color, 5%);
+		}
+	}
+}

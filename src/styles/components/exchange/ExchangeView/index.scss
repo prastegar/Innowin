@@ -1,0 +1,43 @@
+@import "../../../variables";
+
+/*--------------------------------- ExchangePosts ------------------ */
+.-exchangePosts {
+  display: flex;
+  flex-direction: column;
+  margin-right: 35px;
+  .createPost {
+    width: 75%;
+    margin-right: 0;
+  }
+  .filterBox {
+    margin: 10px 15px 10px 0;
+    display: flex;
+    flex: 1;
+    background-color: $chat-box2-color;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    height: 90px;
+    span {
+      font-size: $font-size-boxText;
+    }
+    i {
+      color: lighten($text-light-color, 3%);
+    }
+    i:hover {
+      cursor: pointer;
+      color: $primary-color;
+    }
+    svg {
+      cursor: pointer;
+      fill: lighten($text-light-color, 3%);
+      :hover {
+        fill: $primary-color;
+      }
+    }
+    .clicked {
+      fill: $primary-color;
+      color: $primary-color;
+    }
+  }
+}

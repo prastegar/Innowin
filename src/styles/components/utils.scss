@@ -1,0 +1,85 @@
+@import "../variables";
+
+.-userOrganBackgroundImg {
+  background-image: url("../images/common/userOrganBackground.png");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-attachment: fixed;
+}
+
+.dir-rtl {
+  direction: rtl;
+}
+
+.dir-ltr {
+  direction: ltr;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+%no-draggable {
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+  -webkit-user-drag: none;
+}
+
+.badge-remove-btn {
+  display: inline-block;
+  border-right: 1px solid;
+  cursor: pointer;
+  margin-left: -4px;
+  margin-right: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
+  opacity: 0.4;
+  transition: all 200ms;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.-testDiv {
+  background: $text-lighter-color;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5
+}
+
+.w-40px {
+  width: 40px;
+}
+
+.p-20px {
+  padding: 20px;
+}
+
+.fontSize-13px {
+  font-size: $font-size-smallText;
+}
+
+.max-w-100 {
+  max-width: 100%;
+}
+
+.pr-14-percent {
+  padding-right: 14%;
+}
+
+.pr-1-percent {
+  padding-right: 1%;
+}
+
+.-myCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
