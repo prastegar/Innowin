@@ -9,6 +9,6 @@ export function* loading () {
 		])
 	}
 	catch (error) {
-		put({type: types.USER.FIND_USERS+types.STATUS.ERROR, payload:{error}})
+		put({type: types.LOADING.LOADING+types.STATUS.ERROR, payload:{error}})
 	}
 }

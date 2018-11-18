@@ -25,7 +25,7 @@ const removeUser = ({id, params}) => ({
 	payload: {id, params}
 })
 
-const updateUser = (id, data, params) => ({
+const updateUser = ({id, data, params}) => ({
 	type: types.USER.UPDATE_USER,
 	payload: {id, data, params}
 })

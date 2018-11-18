@@ -10,6 +10,7 @@ import {getMessages} from "src/redux/selectors/translateSelector"
 import {RadioButtonGroup} from "../../common/inputs/RadioButtonInput"
 import {routerActions} from "react-router-redux"
 import {validateSignUpForm, asyncValidate} from "./signUpValidations"
+import UserActions from 'src/redux/actions/user'
 
 
 const SignUpForm = (props) => {
@@ -104,6 +105,13 @@ export class RegisterForm extends Component {
     //       throw new SubmissionError({_error: translator[errorMessage]})
     //     }
     //   )
+
+    const {createUser, getUser, patchUser, updateUser, removeUser} = this.props.actions
+    createUser({data: {username: 'mhooshdar', password: '09379439798Mh'}})
+    // getUser({id: '5bf13a90c8854062de155337'})
+    // patchUser({id: '5bf13a90c8854062de155337', data: {}, params: {}})
+    // updateUser({id: '5bf13a90c8854062de155337', data: {}, params: {}})
+    // removeUser({id: '5bf13a90c8854062de155337', params: {}})
   }
 
   render() {
@@ -139,7 +147,12 @@ const mapDispatchToProps = dispatch => ({
     // signIn: AuthActions.signIn,
     push: routerActions.push,
     // createUserPerson: CreateUserActions.createUserPerson,
-    // createUserOrgan: CreateUserActions.createUserOrgan
+    // createUserOrgan: CreateUserActions.createUserOrgan,
+    createUser: UserActions.createUser,
+    getUser: UserActions.getUser,
+    patchUser: UserActions.patchUser,
+    updateUser: UserActions.updateUser,
+    removeUser: UserActions.removeUser,
   }, dispatch)
 })
 
