@@ -1,10 +1,15 @@
 import io from 'socket.io-client'
 
-export const SOCKET_URL = 'http://socket.daneshboom.ir'
+export const SOCKET_URL = 'https://core.innowin.ir'
 export const REST_URL = 'http://restful.daneshboom.ir'
 
 //Socket
-export const SOCKET = io(SOCKET_URL)
+export const SOCKET = io(SOCKET_URL,{
+	secure: true,
+	extraHeaders: {
+		"Access-Control-Allow-Origin": "*:*"
+	}
+})
 
 const urls = {
   SIGN_IN: "api-token-auth",
