@@ -9,7 +9,7 @@ import {getOrganization} from 'src/crud/organization/organization'
 import {FrameCard, CategoryTitle, ListGroup, VerifyWrapper} from "src/views/common/cards/Frames"
 import {RepresentView} from "./Views"
 import {REST_REQUEST} from "src/consts/Events"
-import {REST_URL as url, SOCKET as socket} from "src/consts/URLS"
+import {REST_URL as url} from "src/consts/URLS"
 import {TOKEN} from "src/consts/data"
 import type {RepresentType, ProductType, UserType, ProfileType} from "src/consts/flowTypes/product/productTypes"
 import type {TranslatorType} from "src/consts/flowTypes/common/commonTypes"
@@ -68,63 +68,63 @@ export class Represent extends Component<RepresentProps, RepresentState> {
         let self = this
         this.setState({isLoading: true, error: false})
         //getuser / organ
-        socket.emit(REST_REQUEST,
-            {
-                method: "get",
-                url: `${url}/users/identities/${product.product_owner}/`,
-                result: `product-owner-get/${productId}`,
-                token: TOKEN,
-            }
-        )
+        // socket.emit(REST_REQUEST,
+        //     {
+        //         method: "get",
+        //         url: `${url}/users/identities/${product.product_owner}/`,
+        //         result: `product-owner-get/${productId}`,
+        //         token: TOKEN,
+        //     }
+        // )
 
-        socket.on(`product-owner-get/${productId}`, (res) => {
-            if (res.detail) {
-                this.setState({error: res.detail, isLoading: false})
-            } else {
-                if (res.identity_user != null) {
-                    getUser(res.identity_user, (userRes: UserType) => {
-                        if (res.detail) {
-                            self.setState({error: res.detail, isLoading: false})
-                        } else {
-                            self.setState({user: userRes, isLoading: false, error: false})
-                        }
-                    })
-                } else {
-                    getOrganization(res.identity_organization, (organRes) => {
-                        if (res.detail) {
-                            self.setState({error: res.detail, isLoading: false})
-                        } else {
-                            self.setState({organization: organRes, isLoading: false, error: false})
-                        }
-                    })
-                }
-            }
-        })
+        // socket.on(`product-owner-get/${productId}`, (res) => {
+        //     if (res.detail) {
+        //         this.setState({error: res.detail, isLoading: false})
+        //     } else {
+        //         if (res.identity_user != null) {
+        //             getUser(res.identity_user, (userRes: UserType) => {
+        //                 if (res.detail) {
+        //                     self.setState({error: res.detail, isLoading: false})
+        //                 } else {
+        //                     self.setState({user: userRes, isLoading: false, error: false})
+        //                 }
+        //             })
+        //         } else {
+        //             getOrganization(res.identity_organization, (organRes) => {
+        //                 if (res.detail) {
+        //                     self.setState({error: res.detail, isLoading: false})
+        //                 } else {
+        //                     self.setState({organization: organRes, isLoading: false, error: false})
+        //                 }
+        //             })
+        //         }
+        //     }
+        // })
     }
 
     componentWillUnmount() {
         const {productId} = this.props
         // TODO mohsen: complete by socket.off of update and delete requests
-        socket.off(`product-owner-get/${productId}`)
-        socket.off(`product-Represents-get/${productId}`, (res) => {
-            if (res.detail) {
-                const newState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState = {...this.state, represent: res, isLoading: false}
-                this.setState(newState)
-            }
-        })
-
-        socket.off(`profileUser-Represents-get/${productId}`, (res) => {
-            if (res.detail) {
-                const newState: RepresentState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState: RepresentState = {...this.state, profile: res[0], isLoading: false}
-                this.setState(newState)
-            }
-        })
+        // socket.off(`product-owner-get/${productId}`)
+        // socket.off(`product-Represents-get/${productId}`, (res) => {
+        //     if (res.detail) {
+        //         const newState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState = {...this.state, represent: res, isLoading: false}
+        //         this.setState(newState)
+        //     }
+        // })
+        //
+        // socket.off(`profileUser-Represents-get/${productId}`, (res) => {
+        //     if (res.detail) {
+        //         const newState: RepresentState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState: RepresentState = {...this.state, profile: res[0], isLoading: false}
+        //         this.setState(newState)
+        //     }
+        // })
 
     }
 
@@ -193,15 +193,15 @@ class Represents extends Component<RepresentsProps, RepresentsState> {
     componentWillUnmount() {
         const {productId} = this.props
         // TODO mohsen: complete by socket.off of update and delete requests
-        socket.off(`productRepresents-Represents-get/${productId}`, (res) => {
-            if (res.detail) {
-                const newState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState = {...this.state, represent: res, isLoading: false}
-                this.setState(newState)
-            }
-        })
+        // socket.off(`productRepresents-Represents-get/${productId}`, (res) => {
+        //     if (res.detail) {
+        //         const newState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState = {...this.state, represent: res, isLoading: false}
+        //         this.setState(newState)
+        //     }
+        // })
     }
 
     render() {

@@ -4,7 +4,7 @@ import {Component} from "react"
 import PropTypes from "prop-types"
 import {FrameCard, CategoryTitle, VerifyWrapper} from "../../../common/cards/Frames"
 import {REST_REQUEST} from "../../../../consts/Events"
-import {REST_URL as url, SOCKET as socket} from "../../../../consts/URLS"
+import {REST_URL as url} from "../../../../consts/URLS"
 import {TOKEN, IDENTITY_ID} from "src/consts/data"
 import {Product} from './view'
 import type {ProductType, CategoryType, PriceType, PictureType} from "src/consts/flowTypes/product/productTypes"
@@ -45,75 +45,75 @@ export class ProductContainer extends Component<ProductContainerProps, ProductCo
     componentDidMount() {
         const {productId} = this.props
 
-        socket.emit(REST_REQUEST,
-            {
-                method: "get",
-                url: `${url}/products/category/`,
-                result: `Products-category-get/`,
-                token: TOKEN,
-            }
-        )
+        // socket.emit(REST_REQUEST,
+        //     {
+        //         method: "get",
+        //         url: `${url}/products/category/`,
+        //         result: `Products-category-get/`,
+        //         token: TOKEN,
+        //     }
+        // )
 //---
-        socket.emit(REST_REQUEST,
-            {
-                method: "get",
-                url: `${url}/products/pictures/?pictures_product=${productId}`,
-                result: `Product-pictures-get`,
-                token: TOKEN,
-            }
-        )
+//         socket.emit(REST_REQUEST,
+//             {
+//                 method: "get",
+//                 url: `${url}/products/pictures/?pictures_product=${productId}`,
+//                 result: `Product-pictures-get`,
+//                 token: TOKEN,
+//             }
+//         )
 
-        socket.emit(REST_REQUEST,
-            {
-                method: "get",
-                url: `${url}/products/${productId}`,
-                result: `Product-get/${productId}`,
-                token: TOKEN,
-            }
-        )
+        // socket.emit(REST_REQUEST,
+        //     {
+        //         method: "get",
+        //         url: `${url}/products/${productId}`,
+        //         result: `Product-get/${productId}`,
+        //         token: TOKEN,
+        //     }
+        // )
 
-        socket.emit(REST_REQUEST,
-            {
-                method: "get",
-                url: `${url}/products/prices/?price_product=${productId}`,
-                result: `Product-price-get`,
-                token: TOKEN,
-            }
-        )
+        // socket.emit(REST_REQUEST,
+        //     {
+        //         method: "get",
+        //         url: `${url}/products/prices/?price_product=${productId}`,
+        //         result: `Product-price-get`,
+        //         token: TOKEN,
+        //     }
+        // )
 
-        socket.on('Product-price-get', (res) => {
-            if (res.detail) {
+        // socket.on('Product-price-get', (res) => {
+        //     if (res.detail) {
+        //
+        //     } else {
+        //         this.setState({...this.state, price: res})
+        //     }
+        // })
+        //
+        // socket.on(`Product-get/${productId}`, res => {
+        //     if (res.detail) {
+        //
+        //     } else {
+        //         this.setState({...this.state, product: res})
+        //     }
+        // })
 
-            } else {
-                this.setState({...this.state, price: res})
-            }
-        })
-
-        socket.on(`Product-get/${productId}`, res => {
-            if (res.detail) {
-
-            } else {
-                this.setState({...this.state, product: res})
-            }
-        })
-
-        socket.on(`Products-category-get/`, (res) => {
-            if (res.detail) {
-                const newState: ProductContainerState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState: ProductContainerState = {...this.state, categories: res, isLoading: false}
-                this.setState(newState)
-            }
-        })
-
-        socket.on('Product-pictures-get', (res) => {
-            if (res.detail) {
-
-            } else {
-                this.setState({...this.state, pictures: res})
-            }
-        })
+        // socket.on(`Products-category-get/`, (res) => {
+        //     if (res.detail) {
+        //         const newState: ProductContainerState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState: ProductContainerState = {...this.state, categories: res, isLoading: false}
+        //         this.setState(newState)
+        //     }
+        // })
+        //
+        // socket.on('Product-pictures-get', (res) => {
+        //     if (res.detail) {
+        //
+        //     } else {
+        //         this.setState({...this.state, pictures: res})
+        //     }
+        // })
     }
 
     render() {
@@ -207,66 +207,66 @@ export class Products extends Component<ProductsProps,ProductsState> {
         const emitting = () => {
             const newState = {...this.state, isLoading: true}
             this.setState(newState)
+            //
+            // socket.emit(REST_REQUEST,
+            //     {
+            //         method: "get",
+            //         url: `${url}/products/?product_owner=${IDENTITY_ID}`,
+            //         result: `Products-get/${IDENTITY_ID}`,
+            //         token: TOKEN,
+            //     }
+            // )
+            //
+            // socket.emit(REST_REQUEST,
+            //     {
+            //         method: "get",
+            //         url: `${url}/products/category/`,
+            //         result: `Products-category-get/`,
+            //         token: TOKEN,
+            //     }
+            // )
 
-            socket.emit(REST_REQUEST,
-                {
-                    method: "get",
-                    url: `${url}/products/?product_owner=${IDENTITY_ID}`,
-                    result: `Products-get/${IDENTITY_ID}`,
-                    token: TOKEN,
-                }
-            )
-
-            socket.emit(REST_REQUEST,
-                {
-                    method: "get",
-                    url: `${url}/products/category/`,
-                    result: `Products-category-get/`,
-                    token: TOKEN,
-                }
-            )
-
-            socket.emit(REST_REQUEST,
-                {
-                    method: "get",
-                    url: `${url}/organizations/${organizationId}/`,
-                    result: `Products-organization-get`,
-                    token: TOKEN,
-                }
-            )
+            // socket.emit(REST_REQUEST,
+            //     {
+            //         method: "get",
+            //         url: `${url}/organizations/${organizationId}/`,
+            //         result: `Products-organization-get`,
+            //         token: TOKEN,
+            //     }
+            // )
         }
 
         emitting()
-        socket.on('Products-organization-get', (res) => {
-            if (res.detail) {
-                const newState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState = {...this.state, organization: res, isLoading: false}
-                this.setState(newState, () => {
-                })
-            }
-        })
-        socket.on(`Products-get/${IDENTITY_ID}`, (res) => {
-            if (res.detail) {
-                const newState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState = {...this.state, products: res, isLoading: false}
-                this.setState(newState, () => {
-                })
-            }
-        })
+        // socket.on('Products-organization-get', (res) => {
+        //     if (res.detail) {
+        //         const newState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState = {...this.state, organization: res, isLoading: false}
+        //         this.setState(newState, () => {
+        //         })
+        //     }
+        // })
+        // socket.on(`Products-get/${IDENTITY_ID}`, (res) => {
+        //     if (res.detail) {
+        //         const newState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState = {...this.state, products: res, isLoading: false}
+        //         this.setState(newState, () => {
+        //         })
+        //     }
+        // })
 
-        socket.on(`Products-category-get/`, (res) => {
-            if (res.detail) {
-                const newState = {...this.state, error: res.detail, isLoading: false}
-                this.setState(newState)
-            } else {
-                const newState = {...this.state, categories: res, isLoading: false}
-                this.setState(newState)
-            }
-        })
+        // socket.on(`Products-category-get/`, (res) => {
+        //     if (res.detail) {
+        //         const newState = {...this.state, error: res.detail, isLoading: false}
+        //         this.setState(newState)
+        //     } else {
+        //         const newState = {...this.state, categories: res, isLoading: false}
+        //         this.setState(newState)
+        //     }
+        // })
 
     }
 

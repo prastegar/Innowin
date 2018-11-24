@@ -3,10 +3,11 @@ import {socket} from 'src/consts/connection'
 import {eventChannel} from 'redux-saga'
 
 const createSocketChannel = (service, method) => {
-	const serviceName = (service === 'patch') ? service + 'ed' : service + 'd'
-	const resultName = `${serviceName} ${method}`
+	const methodName = (method === 'patch') ? method + 'ed' : method + 'd'
+	const resultName = `${service} ${methodName}`
+  console.log(resultName, 'rrrrrrrrrr')
 	return eventChannel(emit => {
-		const resultHandler = res => {
+    const resultHandler = res => {
 			emit(res)
 		}
 		socket.on(resultName, resultHandler)

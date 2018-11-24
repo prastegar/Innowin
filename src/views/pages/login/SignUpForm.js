@@ -106,12 +106,19 @@ export class RegisterForm extends Component {
     //     }
     //   )
 
+    console.log('sdasdasdasd')
     const {createUser, getUser, patchUser, updateUser, removeUser} = this.props.actions
     createUser({data: {username: 'mhooshdar', password: '09379439798Mh'}})
     // getUser({id: '5bf13a90c8854062de155337'})
     // patchUser({id: '5bf13a90c8854062de155337', data: {}, params: {}})
     // updateUser({id: '5bf13a90c8854062de155337', data: {}, params: {}})
     // removeUser({id: '5bf13a90c8854062de155337', params: {}})
+  }
+
+  _testClick = () => {
+    console.log('sdasdasdasd')
+    const {createUser, getUser, patchUser, updateUser, removeUser} = this.props.actions
+    createUser({data: {username: 'pedram', password: '12345678'}})
   }
 
   render() {
@@ -133,6 +140,7 @@ export class RegisterForm extends Component {
           translator={translator}
           onSubmit={onSubmitFunc}
         />
+        <button onClick={this._testClick}>asdasdasdasd</button>
       </div>
     )
   }
