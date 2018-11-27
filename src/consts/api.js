@@ -109,7 +109,6 @@ function patch ({service, id, data, params}) {
       }
       resolve(message)
     })
-
   })
 }
 
