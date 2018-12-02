@@ -1,7 +1,7 @@
 import types from "src/redux/actions/type"
 import {put, call, fork, take} from "redux-saga/effects"
 import api from 'src/consts/api'
-import services from 'src/consts/services'
+import {services} from 'src/consts/services'
 
 export function* updateUser({payload}) {
 	const {id, data, params={}} = payload
