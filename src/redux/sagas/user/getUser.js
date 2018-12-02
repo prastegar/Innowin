@@ -1,7 +1,7 @@
 import types from "src/redux/actions/type"
 import {put, call} from "redux-saga/effects"
 import api from 'src/consts/api'
-import services from 'src/consts/services'
+import {services} from 'src/consts/services'
 
 export function* getUser({payload}) {
 	const {id, params={}} = payload

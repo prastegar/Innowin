@@ -1,27 +1,27 @@
 import types from "src/redux/actions/type"
-import {put, call} from "redux-saga/effects"
+import {put, fork, take} from "redux-saga/effects"
 import api from 'src/consts/api'
-import services from 'src/consts/services'
+import {services, methods} from 'src/consts/services'
+import Channels from 'src/consts/channels'
+
+export function* socketRemoveOrganization() {
+  try {
+    while (true) {
+      const response = yield take(Channels[services.ORGANIZATIONS][methods.REMOVE])
+      yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION + types.STATUS.SUCCESS, payload: {data: response.data}})
+    }
+  } catch (error) {
+    yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION + types.STATUS.ERROR, payload: {error}})
+  } finally {
+    socketRemoveOrganization()
+  }
+}
 
 export function* removeOrganization({payload}) {
-	const {id, params={}} = payload
-	// const SOCKET_CHANNEL = yield call(api.createSocketChannel,services.ORGANIZATIONS, services.method.REMOVE)
-	// try {
-	// 	yield fork(api.patch, id, params)
-	// 	while (true) {
-	// 		const data = yield take(SOCKET_CHANNEL)
-	// 		yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION+types.STATUS.SUCCESS, payload:{data}})
-	// 	}
-	// }
-	// catch (error) {
-	// 	yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION+types.STATUS.ERROR, payload:{error}})
-	// }
-
+  const {data, params = {}} = payload
   try {
-    const response = yield call(api.remove,{service:services.ORGANIZATIONS, id, params})
-    yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION+types.STATUS.SUCCESS, payload:{data: response.data}})
-  }
-  catch (error) {
-    yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION+types.STATUS.ERROR, payload:{error}})
+    yield fork(api.remove, {service: services.ORGANIZATIONS, data, params})
+  } catch (error) {
+    yield put({type: types.ORGANIZATION.REMOVE_ORGANIZATION + types.STATUS.ERROR, payload: {error}})
   }
 }

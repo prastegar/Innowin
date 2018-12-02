@@ -1,9 +1,9 @@
 import types from "src/redux/actions/type"
 import {put, call} from "redux-saga/effects"
 import api from 'src/consts/api'
-import services from 'src/consts/services'
+import {services} from 'src/consts/services'
 
-export function* findOrganization({payload}) {
+export function* findOrganizations({payload}) {
 	const {params} = payload
 	try {
 		const {data} = yield call(api.find,{service:services.ORGANIZATIONS, params})

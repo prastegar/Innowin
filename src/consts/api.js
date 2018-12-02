@@ -1,11 +1,13 @@
-import services from "src/consts/services"
-import {socket} from 'src/consts/connection'
 import {eventChannel} from 'redux-saga'
+import {services} from "src/consts/services"
+import {socket} from 'src/consts/connection'
 
 const createSocketChannel = (service, method) => {
 	const methodName = (method === 'patch') ? method + 'ed' : method + 'd'
 	const resultName = `${service} ${methodName}`
-  console.log(resultName, 'rrrrrrrrrr')
+	// console.log(resultName, 'rrrrrrrrrr')
+	// console.log('service : ',service)
+	// console.log('method : ',method)
 	return eventChannel(emit => {
     const resultHandler = res => {
 			emit(res)
@@ -67,7 +69,7 @@ function find ({service, params}) {
 	})
 }
 
-function* create ({service, data , params}) {
+function create ({service, data , params}) {
 	console.groupCollapsed(` %cRequest  %cCREATE ${service.toUpperCase()}`, "line-height: 1.5 !important; color: gray; font-size:12px; font-family:'Daniel'; font-weight:regular;", "color: #b26aea; font-size:12px; font-family: 'roboto',Impact,sans-serif; font-weight:900;")
 	console.log(" %cService ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",service)
 	console.log(" %cData ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",data)
@@ -75,18 +77,9 @@ function* create ({service, data , params}) {
 	console.groupEnd("Request  CREATE")
 	socket.emit('create', service, {...data , strategy:'local'}, params,
 			(error, message) => {
-				console.log('message is :', message)
-				console.log('error is :', error)
+				console.log('message callback is :', message)
+				console.log('error callback is :', error)
 			})
-
-  // return new Promise((resolve, reject) => {
-  //   socket.emit('create', service, data, params, (error, message) => {
-  //     if (error) {
-  //       reject(error)
-  //     }
-  //     resolve(message)
-  //   })
-  // })
 }
 
 function patch ({service, id, data, params}) {
@@ -96,21 +89,11 @@ function patch ({service, id, data, params}) {
   console.log(" %cData ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",data)
 	console.log(" %cParams ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",params)
 	console.groupEnd("Request  PATCH")
-	// socket.emit('patch', service, id, data, params,
-	// 		(error, message) => {
-	// 			console.log('message is :', message)
-	// 			console.log('error is :', error)
-	// 		})
-
-  return new Promise((resolve, reject) => {
-    socket.emit('patch', service, id, data, params, (error, message) => {
-      if (error) {
-        reject(error)
-      }
-      resolve(message)
-    })
-
-  })
+	socket.emit('patch', service, id, data, params,
+			(error, message) => {
+				console.log('message callback is :', message)
+				console.log('error callback is :', error)
+			})
 }
 
 function update ({service, id, data, params}) {
@@ -120,20 +103,11 @@ function update ({service, id, data, params}) {
 	console.log(" %cData ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",data)
 	console.log(" %cParams ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",params)
 	console.groupEnd("Request  UPDATE")
-	// socket.emit('update', service, id, data, params,
-	// 		(error, message) => {
-	// 			console.log('message is :', message)
-	// 			console.log('error is :', error)
-	// 		})
-
-  return new Promise((resolve, reject) => {
-    socket.emit('update', service, id, data, params, (error, message) => {
-      if (error) {
-        reject(error)
-      }
-      resolve(message)
-    })
-  })
+	socket.emit('update', service, id, data, params,
+			(error, message) => {
+				console.log('message callback is :', message)
+				console.log('error callback is :', error)
+			})
 }
 
 function remove ({service, id, params}) {
@@ -142,20 +116,11 @@ function remove ({service, id, params}) {
 	console.log(" %cID ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",id)
 	console.log(" %cParams ","color: orange; font-size:12px; font-family: 'Purisa',Impact,sans-serif; font-weight:900;",params)
 	console.groupEnd("Request  REMOVE")
-	// socket.emit('remove', service, id, params,
-	// 		(error, message) => {
-	// 			console.log('message is :', message)
-	// 			console.log('error is :', error)
-	// 		})
-
-  return new Promise((resolve, reject) => {
-    socket.emit('remove', service, id, params, (error, message) => {
-      if (error) {
-        reject(error)
-      }
-      resolve(message)
-    })
-  })
+	socket.emit('remove', service, id, params,
+			(error, message) => {
+				console.log('message callback is :', message)
+				console.log('error callback is :', error)
+			})
 }
 
 const api = {

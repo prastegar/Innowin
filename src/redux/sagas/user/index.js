@@ -1,14 +1,15 @@
-import {takeEvery} from 'redux-saga/effects'
+import {takeEvery, fork} from 'redux-saga/effects'
 import types from 'src/redux/actions/type'
 
-import {createUser} from './createUser'
+import {createUser, socketCreateUser} from './createUser'
 import {findUsers} from './findUsers'
 import {getUser} from './getUser'
-import {patchUser} from './patchUser'
-import {removeUser} from './removeUser'
-import {updateUser} from './updateUser'
+import {patchUser, socketPatchUser} from './patchUser'
+import {removeUser, socketRemoveUser} from './removeUser'
+import {updateUser, socketUpdateUser} from './updateUser'
 
-function* watchCreateUsers() {
+function* watchCreateUser() {
+  yield fork(socketCreateUser)
   yield takeEvery(types.USER.CREATE_USER, createUser)
 }
 
@@ -21,19 +22,22 @@ function* watchGetUser() {
 }
 
 function* watchPatchUser() {
+  yield fork(socketPatchUser)
   yield takeEvery(types.USER.PATCH_USER, patchUser)
 }
 
 function* watchRemoveUser() {
+  yield fork(socketRemoveUser)
   yield takeEvery(types.USER.REMOVE_USER, removeUser)
 }
 
 function* watchUpdateUser() {
+  yield fork(socketUpdateUser)
   yield takeEvery(types.USER.UPDATE_USER, updateUser)
 }
 
 export default [
-  watchCreateUsers(),
+  watchCreateUser(),
   watchFindUsers(),
   watchGetUser(),
   watchPatchUser(),

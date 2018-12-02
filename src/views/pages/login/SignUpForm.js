@@ -118,7 +118,7 @@ export class RegisterForm extends Component {
   _testClick = () => {
     console.log('sdasdasdasd')
     const {createUser, getUser, patchUser, updateUser, removeUser} = this.props.actions
-    createUser({data: {username: 'pedram', password: '12345678'}})
+    createUser({data: {username: 'pedram2', password: '12345678'}})
   }
 
   render() {
