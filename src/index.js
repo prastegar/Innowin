@@ -9,7 +9,9 @@ import {Provider} from "react-redux"
 import {withRouter} from "react-router-dom"
 import {persistStore} from 'redux-persist'
 import {PersistGate} from 'redux-persist/integration/react'
+// import Channels from 'src/consts/channels'
 
+// console.log("channels instance : ",Channels)
 const WrappedApp = withRouter(App)
 const store = configureStore()
 export const persistor = persistStore(store)

@@ -1,11 +1,13 @@
-import services from "src/consts/services"
-import {socket} from 'src/consts/connection'
 import {eventChannel} from 'redux-saga'
+import {services} from "src/consts/services"
+import {socket} from 'src/consts/connection'
 
 const createSocketChannel = (service, method) => {
 	const methodName = (method === 'patch') ? method + 'ed' : method + 'd'
 	const resultName = `${service} ${methodName}`
-  console.log(resultName, 'rrrrrrrrrr')
+	// console.log(resultName, 'rrrrrrrrrr')
+	// console.log('service : ',service)
+	// console.log('method : ',method)
 	return eventChannel(emit => {
     const resultHandler = res => {
 			emit(res)
