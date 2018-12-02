@@ -9,5 +9,6 @@ const services = {
 		UPDATE: 'update',
 	},
 	USERS: 'users',
+	ORGANIZATIONS: 'organizations',
 }
 export default services

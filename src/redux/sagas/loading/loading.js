@@ -6,6 +6,7 @@ export function* loading () {
 	try {
 		yield all([
 			put({type: types.USER.FIND_USERS, payload:{}}),
+      put({type: types.ORGANIZATION.FIND_ORGANIZATIONS, payload:{}}),
 		])
 	}
 	catch (error) {
